@@ -3,44 +3,51 @@ Dataset Overview
 
 The dataset contains 1,000 entries simulating banking loan applications. The goal is to predict whether a loan will be approved based on features such as credit history, income, education, and employment status.
 
-🔢 Variables Used:
+ Variables Used:
 
 Categorical: Gender, Married, Dependents, Education, Self_Employed, Credit_History, Property_Area, Loan_Status
 
 Numerical: ApplicantIncome, CoapplicantIncome, LoanAmount, Loan_Amount_Term
-⚖️ Statistical Testing
+ Statistical Testing
 
-■ Chi-Square Tests (Categorical Associations):
+Chi-Square Tests (Categorical Associations):The Chi-Square Test is a statistical hypothesis test used to determine whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies if the variables were independent.
 
-Credit_History vs Loan_Status:
 
-✅ Result: Highly significant (p < 0.001)
+Hypotheses for Test of Independence:
+Null Hypothesis (H₀): The two variables are independent (no association).
 
-🔍 Interpretation: Applicants with good credit history are more likely to have their loans approved.
+Alternative Hypothesis (H₁): The two variables are dependent (there is an association).
 
-Education vs Loan_Status:
+Decision Rule:
+If p-value < 0.05 → Reject H₀ → Variables are associated
 
-❌ Result: Not significant (p > 0.05)
+If p-value ≥ 0.05 → Fail to reject H₀ → Variables are independent
 
-🔍 Interpretation: Education does not significantly influence loan approval.
+Credit_History vs Loan_Status: It results in highly significant (p < 0.001)
 
-■ T-Tests (Numerical Mean Differences):
+Interpretation: Applicants with good credit history are more likely to have their loans approved.
+
+Education vs Loan_Status: Not significant (p > 0.05)
+
+Interpretation: Education does not significantly influence loan approval.
+
+T-Tests (Numerical Mean Differences):A T-Test is a statistical hypothesis test used to determine whether there is a significant difference between the means of two groups. It is commonly used when the data is numerical and the sample size is small to moderate.
 
 ApplicantIncome vs Loan_Status:
 
-✅ Result: Significant (p < 0.05)
+Result: Significant (p < 0.05)
 
-🔍 Interpretation: Higher applicant income correlates with higher approval chance.
+Interpretation: Higher applicant income correlates with higher approval chance.
 
 LoanAmount vs Loan_Status:
 
-✅ Result: Significant (p < 0.05)
+Result: Significant (p < 0.05)
 
-🔍 Interpretation: Larger loan amounts are slightly less likely to be approved.
+Interpretation: Larger loan amounts are slightly less likely to be approved.
 
-🤖 Machine Learning Models
+Machine Learning Models
 
-✅ Decision Tree (rpart):
+Decision Tree (rpart):A Decision Tree is a supervised machine learning algorithm used for classification and regression tasks. It models decisions as a tree-like structure of if-else conditions that split data based on feature values.
 
 Trained with: caret package
 
@@ -48,11 +55,11 @@ Test Accuracy: ~Accuracy from confusionMatrix
 
 Key Features: Credit_History, LoanAmount, ApplicantIncome
 
-🌳 Visualization:
+Visualization:
 
 A decision tree was plotted using rpart.plot() with node probabilities, sample sizes, and split rules. The tree starts with Credit_History and branches out to other influential features.
 
-🧰 Prediction Example
+Prediction Example
 
 A sample new applicant with the following features:
 
@@ -76,7 +83,7 @@ Good Credit History
 
 Urban Area
 
-⬇️ Predicted Loan Status: Y (Approved)
+Predicted Loan Status: Y (Approved)
 
 Correlation Analysis
 
@@ -86,6 +93,6 @@ Moderate positive correlation between ApplicantIncome and LoanAmount.
 
 Very weak or no correlation between CoapplicantIncome and Loan_Status.
 
-📒 Conclusion
+Conclusion
 
-This project demonstrates the use of statistical testing and machine learning (decision tree) to predict loan approval. Credit history and income are significant predictors. The model built using the rpart decision tree algorithm performs well and is easy to interpret, making it suitable for banking decision support systems.
+This project demonstrates the use of statistical testing and machine learning (decision tree) to predict loan approval using R language. Credit history and income are significant predictors. The model built using the rpart decision tree algorithm performs well and is easy to interpret, making it suitable for banking decision support systems.
